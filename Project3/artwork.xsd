@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+    Description: This is schema document for artwork.xml.
+    
+    File Name: artwork.xsd
+    Author: Tom McCarthy
+    Date: 06/19/2020
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+    <xs:element name="Artworks">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Artwork" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Artwork">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Title" type="xs:string" />
+                <xs:element name="Media" type="xs:string"/>
+                <xs:element name="Description" type="xs:string"/>
+                <xs:element name="Created" type="xs:string"/>
+                <xs:element name="Display" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>     
+</xs:schema>
