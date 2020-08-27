@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Description: This is schema document for dvdlibrary.xml.
+    
+    File Name: dvdlibrary.xsd
+    Author: Tom McCarthy
+    Date: 06/26/2020
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="dvdlibrary">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dvd" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="dvd">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="title" />
+                <xs:element ref="description" />
+                <xs:element ref="year" />
+                <xs:element ref="company" />
+                <xs:element ref="characters" />
+                <xs:element ref="bonus" />
+                <xs:element ref="purchased" />
+            </xs:sequence>
+            <xs:attribute ref="isbn" use="required" />
+            <xs:attribute ref="from" use="optional" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title" type="xs:string" />
+    <xs:element name="description" type="xs:string" />
+    <xs:element name="year" type="xs:gYear" />
+    <xs:element name="company" type="xs:string" />
+    <xs:element name="character" type="xs:string" />
+    <xs:element name="feature" type="xs:string" />
+    <xs:element name="price" type="xs:double" />
+    <xs:element name="location" type="xs:string" />
+    <xs:element name="date" type="xs:date" />
+    <xs:element name="characters"> 
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="character" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bonus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="feature" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute ref="num" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="purchased">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="price" />
+                <xs:element ref="location" />
+                <xs:element ref="date" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:attribute name="isbn" type="isbnType" />
+    <xs:attribute name="from" type="xs:string" />
+    <xs:attribute name="num" type="xs:integer" />
+    <xs:simpleType name="isbnType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{1}-\d{4}-\d{4}-\d{1}" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
