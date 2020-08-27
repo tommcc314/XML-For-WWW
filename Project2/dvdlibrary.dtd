@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    Description: This is a Document Type Definition file for dvdlibrary.xml,
+    which contains information about Jenna's DVDs.
+    
+    File Name: dvdlibrary.dtd
+    Author: Tom McCarthy
+    Date: 06/11/2020
+-->
+
+<!ELEMENT dvdlibrary (dvd+)>
+<!ELEMENT dvd (title, description, year, company, characters, bonus, purchased)>
+<!ATTLIST dvd isbn CDATA #REQUIRED>
+<!ELEMENT characters (character+)>
+<!ELEMENT bonus (feature+)>
+<!ATTLIST bonus num CDATA #REQUIRED>
+<!ELEMENT purchased (price, location, date)>
+<!ATTLIST purchased from (mom | dad | sister | grandpa | grandma) #IMPLIED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT company (#PCDATA)>
+<!ELEMENT character (#PCDATA)>
+<!ELEMENT feature (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
